@@ -7,10 +7,18 @@ public class EquationListCreatorDriver {
         int[] intArray = {1, 1, 1, 1};
     
         try {
-            Equation onePlusOne = new Equation(intArray, "_+_-_=_");
+            // Equation onePlusOne = new Equation(intArray, "_+_-_=_");
 
-            System.out.println(onePlusOne.printEquation());
-            System.out.println(onePlusOne.evaluateFourDigit());
+            // System.out.println(onePlusOne.printEquation());
+            // System.out.println(onePlusOne.evaluateFourDigit());
+
+
+            EquationListCreator equationListCreator = new EquationListCreator(5, -5, 20, 4, Equation.FOUR_NUMBER_VAILD_ARRAYS);
+
+            Equation[] equationList = equationListCreator.createEquationList();
+
+            System.out.println(Equation.printEquations(equationList));
+
 
         } catch(Exception e) {
             System.out.println(e.getMessage());

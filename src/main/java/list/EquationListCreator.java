@@ -11,8 +11,6 @@ public class EquationListCreator {
     private int maxNumber;
     private int amountOfNumbers;
     private String[] validFormats;
-    @SuppressWarnings("unused")
-    private ArrayList<Equation> equations;
     
     public EquationListCreator(int numEquations, int minNumber, int maxNumber, int amountOfNumbers, String[] validFormats) throws Exception {
         if(numEquations < 1) {
@@ -45,27 +43,35 @@ public class EquationListCreator {
         this.validFormats = validFormats;
     }
 
-    public void createEquationList() {
+
+
+    public Equation[] createEquationList() {
+        Equation[] equations = new Equation[amountOfNumbers + 1];
+
         Random rand = new Random();
-        equations = new ArrayList<Equation>();
         int[] numArray = new int[amountOfNumbers];
-        Equation equation;
+        String format;
+        boolean isEquationEqual;
 
         for(int i = 0; i < numEquations; i++) {
-            equation = new Equation(numArray, null);
+            isEquationEqual = false;
+            format = "";
 
-            while (equation.evaluateFourDigit() != true) {
-                for(int j = 0; j < amountOfNumbers; j++) {
+            while (!isEquationEqual) {
+                for (int j = 0; j < numArray.length; j++) {
                     numArray[j] = rand.nextInt(minNumber, maxNumber + 1);
                 }
-    
-                equation = new Equation(numArray, validFormats[rand.nextInt(0, validFormats.length)]);
-                
+
+                format = validFormats[rand.nextInt(0, validFormats.length)];
+                isEquationEqual = true;
+
             }
 
-            equations.add(equation);
+            equations[i] = new Equation(numArray, format);
 
         }
+
+        return equations;
 
     }
 

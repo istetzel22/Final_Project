@@ -1,7 +1,7 @@
 package model;
 
 public class Equation {
-    final private String[] FOUR_NUMBER_VAILD_ARRAYS = {
+    final public static String[] FOUR_NUMBER_VAILD_ARRAYS = {
         "_+_+_=_",
         "_+_-_=_",
         "_+_*_=_",
@@ -30,6 +30,12 @@ public class Equation {
         this.numbers = numbers;
         this.format = format;
 
+    }
+
+    public Equation() {
+        numbers = null;
+        format = "N/A";
+        
     }
 
     public int[] getNumbers() {
@@ -80,7 +86,20 @@ public class Equation {
 
     }
 
+    public static String printEquations(Equation[] equations) {
+        StringBuilder returnString = new StringBuilder();
+        for (Equation equation : equations) {
+            returnString.append(equation.printEquation() + "\n");
+        }
+        return returnString.toString();
+
+    }
+
     public boolean evaluateFourDigit() {
+        if(format == null) {
+            return false;
+        }
+
         // I looked into trying to not use 16 if statements, but it looks like this will have to do
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[0])) {
             return numbers[0] + numbers[1] + numbers[2] == numbers[3];
