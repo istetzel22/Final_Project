@@ -49,11 +49,21 @@ public class EquationListCreator {
         Random rand = new Random();
         equations = new ArrayList<Equation>();
         int[] numArray = new int[amountOfNumbers];
+        Equation equation;
 
         for(int i = 0; i < numEquations; i++) {
-            for(int j = 0; j < amountOfNumbers; j++) {
-                numArray[j] = rand.nextInt(minNumber, maxNumber + 1);
+            equation = new Equation(numArray, null);
+
+            while (equation.evaluateFourDigit() != true) {
+                for(int j = 0; j < amountOfNumbers; j++) {
+                    numArray[j] = rand.nextInt(minNumber, maxNumber + 1);
+                }
+    
+                equation = new Equation(numArray, validFormats[rand.nextInt(0, validFormats.length)]);
+                
             }
+
+            equations.add(equation);
 
         }
 
