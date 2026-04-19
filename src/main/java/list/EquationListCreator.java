@@ -11,6 +11,7 @@ public class EquationListCreator {
     private int maxNumber;
     private int amountOfNumbers;
     private String[] validFormats;
+    @SuppressWarnings("unused")
     private ArrayList<Equation> equations;
     
     public EquationListCreator(int numEquations, int minNumber, int maxNumber, int amountOfNumbers, String[] validFormats) throws Exception {

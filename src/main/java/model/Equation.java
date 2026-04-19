@@ -20,6 +20,7 @@ public class Equation {
         "_/_/_=_"
     };
 
+    @SuppressWarnings("unused")
     private int amountOfNumbers;
     private int[] numbers;
     private String format;
