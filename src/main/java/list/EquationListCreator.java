@@ -1,6 +1,4 @@
 package list;
-
-import java.util.ArrayList;
 import java.util.Random;
 
 import model.Equation;
@@ -46,7 +44,7 @@ public class EquationListCreator {
 
 
     public Equation[] createEquationList() {
-        Equation[] equations = new Equation[amountOfNumbers + 1];
+        Equation[] equations = new Equation[numEquations];
 
         Random rand = new Random();
         int[] numArray = new int[amountOfNumbers];
@@ -54,8 +52,10 @@ public class EquationListCreator {
         boolean isEquationEqual;
 
         for(int i = 0; i < numEquations; i++) {
+
             isEquationEqual = false;
             format = "";
+            Equation equation = new Equation();
 
             while (!isEquationEqual) {
                 for (int j = 0; j < numArray.length; j++) {
@@ -64,10 +64,12 @@ public class EquationListCreator {
 
                 format = validFormats[rand.nextInt(0, validFormats.length)];
                 isEquationEqual = true;
+                equation.setFormat(format);
+                equation.setNumbers(numArray);
 
             }
 
-            equations[i] = new Equation(numArray, format);
+            equations[i] = equation;
 
         }
 
