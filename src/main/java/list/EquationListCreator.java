@@ -1,6 +1,7 @@
 package list;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import model.Equation;
 
@@ -22,6 +23,7 @@ public class EquationListCreator {
         this.numEquations = numEquations;
         this.minNumber = minNumber;
         this.maxNumber = maxNumber;
+        this.amountOfNumbers = amountOfNumbers;
         this.validFormats = validFormats;
         
     }
@@ -43,16 +45,17 @@ public class EquationListCreator {
     }
 
     public void createEquationList() {
+        Random rand = new Random();
         equations = new ArrayList<Equation>();
-        int[] numArray;
+        int[] numArray = new int[amountOfNumbers];
 
         for(int i = 0; i < numEquations; i++) {
-            for(int j = 0; j < ; j++) {
-
+            for(int j = 0; j < amountOfNumbers; j++) {
+                numArray[j] = rand.nextInt(minNumber, maxNumber + 1);
             }
 
         }
 
     }
-    
+
 }

@@ -80,7 +80,15 @@ public class Equation {
     }
 
     public boolean evaluate() {
-        if(format ==)
+        switch (format) {
+            case FOUR_NUMBER_VAILD_ARRAYS[2]:
+                
+                break;
+        
+            default:
+                break;
+        }
+        
 
     }
 
