@@ -80,14 +80,13 @@ public class Equation {
     }
 
     public boolean evaluate() {
-        switch (format) {
-            case FOUR_NUMBER_VAILD_ARRAYS[2]:
-                
-                break;
-        
-            default:
-                break;
+        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[0])) {
+            return numbers[0] + numbers[1] + numbers[2] == numbers[3];
+
         }
+        
+
+        return false;
         
 
     }
