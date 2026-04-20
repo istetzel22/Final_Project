@@ -96,7 +96,7 @@ public class Equation {
     }
 
     public boolean evaluateFourDigit() {
-        if(format == null) {
+        if(format == null || amountOfNumbers != 4) {
             return false;
         }
 
@@ -114,7 +114,7 @@ public class Equation {
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[3])) {
-            return numbers[0] + numbers[1] / numbers[2] == numbers[3];
+            return numbers[0] + numbers[1] / (double) numbers[2] == numbers[3];
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[4])) {
@@ -130,7 +130,7 @@ public class Equation {
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[7])) {
-            return numbers[0] - numbers[1] / numbers[2] == numbers[3];
+            return numbers[0] - numbers[1] / (double) numbers[2] == numbers[3];
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[8])) {
@@ -146,23 +146,23 @@ public class Equation {
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[11])) {
-            return numbers[0] * numbers[1] / numbers[2] == numbers[3];
+            return numbers[0] * numbers[1] / (double) numbers[2] == numbers[3];
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[12])) {
-            return numbers[0] / numbers[1] + numbers[2] == numbers[3];
+            return numbers[0] / (double) numbers[1] + numbers[2] == numbers[3];
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[13])) {
-            return numbers[0] / numbers[1] - numbers[2] == numbers[3];
+            return numbers[0] / (double) numbers[1] - numbers[2] == numbers[3];
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[14])) {
-            return numbers[0] / numbers[1] * numbers[2] == numbers[3];
+            return numbers[0] / (double) numbers[1] * numbers[2] == numbers[3];
 
         }
         if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[15])) {
-            return numbers[0] / numbers[1] / numbers[2] == numbers[3];
+            return numbers[0] / (double) numbers[1] / (double) numbers[2] == numbers[3];
 
         }
         return false;

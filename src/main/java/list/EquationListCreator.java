@@ -11,7 +11,6 @@ public class EquationListCreator {
     private String[] validFormats;
     private Equation[] equations;
     
-    
     public EquationListCreator(int numEquations, int minNumber, int maxNumber, int amountOfNumbers, String[] validFormats) throws Exception {
         if(numEquations < 1) {
             throw new Exception("Can't have less than 1 equation");
@@ -48,27 +47,26 @@ public class EquationListCreator {
         this.validFormats = validFormats;
     }
 
-
-
     public void createEquationList() {
         Random rand = new Random();
-        boolean isEquationEqual = false;
-
+        
         for(int i = 0; i < numEquations; i++) {
+            boolean isEquationEqual = false;
             int[] numArray = new int[amountOfNumbers];
             String format = "";
             Equation equation = new Equation();
 
-            isEquationEqual = false;
-
             while (!isEquationEqual) {
                 for (int j = 0; j < numArray.length; j++) {
                     numArray[j] = rand.nextInt(minNumber, maxNumber + 1);
-                }
 
-                format = validFormats[rand.nextInt(0, validFormats.length)];
-                isEquationEqual = true;
+                }
+                format = validFormats[rand.nextInt(0, validFormats.length)];                
                 equation = new Equation(numArray, format);
+
+                try {
+                    isEquationEqual = equation.evaluateFourDigit();
+                } catch (Exception e) {}
 
             }
 
