@@ -10,16 +10,17 @@ public class EquationListCreatorDriver {
         int AMOUNT_OF_NUMBERS = 4;
 
         // You can change these
-        int NUM_EQUATIONS = 5000;
-        int MIN_NUMBER = -5;
-        int MAX_NUMBER = 20;
+        final int NUM_EQUATIONS = 5000;
+        final int MIN_NUMBER = -5;
+        final int MAX_NUMBER = 20;
+        final File FILE_LOCATION = new File("equations.txt");
     
         try {
             
             EquationListCreator equationListCreator = new EquationListCreator(NUM_EQUATIONS, MIN_NUMBER, MAX_NUMBER, AMOUNT_OF_NUMBERS, Equation.FOUR_DIGIT_VAILD_ARRAY);
 
             equationListCreator.createEquationList();
-            boolean completed = equationListCreator.writeListToFile(new File("equations.txt"));
+            boolean completed = equationListCreator.writeListToFile(FILE_LOCATION);
 
             if(completed) {
                 System.out.println("Created");
