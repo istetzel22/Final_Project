@@ -1,7 +1,7 @@
 package model;
 
 public class Equation {
-    final public static String[] FOUR_NUMBER_VAILD_ARRAYS = {
+    final public static String[] FOUR_DIGIT_VAILD_ARRAY = {
         "_+_+_=_",
         "_+_-_=_",
         "_+_*_=_",
@@ -101,67 +101,67 @@ public class Equation {
         }
 
         // I looked into trying to not use 16 if statements, but it looks like this will have to do
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[0])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[0])) {
             return numbers[0] + numbers[1] + numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[1])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[1])) {
             return numbers[0] + numbers[1] - numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[2])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[2])) {
             return numbers[0] + numbers[1] * numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[3])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[3])) {
             return numbers[0] + numbers[1] / (double) numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[4])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[4])) {
             return numbers[0] - numbers[1] + numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[5])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[5])) {
             return numbers[0] - numbers[1] - numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[6])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[6])) {
             return numbers[0] - numbers[1] * numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[7])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[7])) {
             return numbers[0] - numbers[1] / (double) numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[8])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[8])) {
             return numbers[0] * numbers[1] + numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[9])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[9])) {
             return numbers[0] * numbers[1] - numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[10])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[10])) {
             return numbers[0] * numbers[1] * numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[11])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[11])) {
             return numbers[0] * numbers[1] / (double) numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[12])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[12])) {
             return numbers[0] / (double) numbers[1] + numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[13])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[13])) {
             return numbers[0] / (double) numbers[1] - numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[14])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[14])) {
             return numbers[0] / (double) numbers[1] * numbers[2] == numbers[3];
 
         }
-        if(format.equals(FOUR_NUMBER_VAILD_ARRAYS[15])) {
+        if(format.equals(FOUR_DIGIT_VAILD_ARRAY[15])) {
             return numbers[0] / (double) numbers[1] / (double) numbers[2] == numbers[3];
 
         }
