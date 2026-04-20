@@ -1,5 +1,9 @@
 package list;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Random;
+import java.util.Scanner;
 
 import model.Equation;
 
@@ -72,6 +76,24 @@ public class EquationListCreator {
 
             equations[i] = equation;
 
+        }
+
+    }
+
+    public boolean writeListToFile(File fileLocation) {
+
+        try {
+            PrintWriter output = new PrintWriter(fileLocation);
+
+            for (Equation equation : equations) {
+                output.println(equation);
+            }
+
+            output.close();
+            return true;
+            
+        } catch (FileNotFoundException e) {
+            return false;
         }
 
     }
