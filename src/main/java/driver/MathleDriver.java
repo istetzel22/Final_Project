@@ -8,7 +8,7 @@ public class MathleDriver {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MathleView view  = new MathleView("test", 200, 200);
+                MathleView view  = new MathleView("test", 600, 300);
             }
         });
     }
