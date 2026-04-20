@@ -76,8 +76,8 @@ public class Equation {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append("Format: " + format);
-        stringBuilder.append("\nNumbers:");
+        stringBuilder.append(format);
+        stringBuilder.append(",");
         for (int num : numbers) {
             stringBuilder.append(" " + num);
         }
