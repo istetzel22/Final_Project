@@ -9,9 +9,10 @@ public class EquationListCreatorDriver {
             
             EquationListCreator equationListCreator = new EquationListCreator(3, -5, 20, 4, Equation.FOUR_NUMBER_VAILD_ARRAYS);
 
-            Equation[] equationList = equationListCreator.createEquationList();
+            equationListCreator.createEquationList();
 
-            System.out.println(Equation.printEquations(equationList));
+            System.out.println(Equation.printEquationArray(equationListCreator.getEquations()));
+            System.out.println(equationListCreator.getEquations()[2]);
 
 
         } catch(Exception e) {

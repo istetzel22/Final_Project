@@ -9,6 +9,8 @@ public class EquationListCreator {
     private int maxNumber;
     private int amountOfNumbers;
     private String[] validFormats;
+    private Equation[] equations;
+    
     
     public EquationListCreator(int numEquations, int minNumber, int maxNumber, int amountOfNumbers, String[] validFormats) throws Exception {
         if(numEquations < 1) {
@@ -22,7 +24,12 @@ public class EquationListCreator {
         this.maxNumber = maxNumber;
         this.amountOfNumbers = amountOfNumbers;
         this.validFormats = validFormats;
+        equations = new Equation[numEquations];
         
+    }
+
+    public Equation[] getEquations() {
+        return equations;
     }
 
     public int getNumEquations() {
@@ -43,19 +50,16 @@ public class EquationListCreator {
 
 
 
-    public Equation[] createEquationList() {
-        Equation[] equations = new Equation[numEquations];
-
+    public void createEquationList() {
         Random rand = new Random();
-        int[] numArray = new int[amountOfNumbers];
-        String format;
-        boolean isEquationEqual;
+        boolean isEquationEqual = false;
 
         for(int i = 0; i < numEquations; i++) {
+            int[] numArray = new int[amountOfNumbers];
+            String format = "";
+            Equation equation = new Equation();
 
             isEquationEqual = false;
-            format = "";
-            Equation equation = new Equation();
 
             while (!isEquationEqual) {
                 for (int j = 0; j < numArray.length; j++) {
@@ -64,16 +68,13 @@ public class EquationListCreator {
 
                 format = validFormats[rand.nextInt(0, validFormats.length)];
                 isEquationEqual = true;
-                equation.setFormat(format);
-                equation.setNumbers(numArray);
+                equation = new Equation(numArray, format);
 
             }
 
             equations[i] = equation;
 
         }
-
-        return equations;
 
     }
 

@@ -86,7 +86,7 @@ public class Equation {
 
     }
 
-    public static String printEquations(Equation[] equations) {
+    public static String printEquationArray(Equation[] equations) {
         StringBuilder returnString = new StringBuilder();
         for (Equation equation : equations) {
             returnString.append(equation.printEquation() + "\n");
