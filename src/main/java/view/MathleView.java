@@ -20,9 +20,9 @@ public class MathleView extends JFrame {
 
         gridBag.insets = new Insets(10, 10, 10, 10);
         
-        gridBag.gridx = 1;
+        gridBag.gridx = 2;
         gridBag.gridy = 0;
-        gridBag.gridwidth = 2;
+        gridBag.gridwidth = 3;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
         add(new JLabel(title, JLabel.CENTER), gridBag);
         
@@ -30,9 +30,20 @@ public class MathleView extends JFrame {
         gridBag.gridwidth = 1;
         gridBag.gridy = 1;
 
-        for(int i = 0; i < fields.length; i++) {
+        for(int i = 0; i < fields.length * 2; i += 2) {
+            gridBag.ipadx = 40;        
             gridBag.gridx = i;
-            add(fields[i], gridBag);
+            add(fields[i / 2], gridBag);
+            gridBag.gridx = i + 1;
+            gridBag.ipadx = 0;
+            if(i == (fields.length - 1) * 2) {
+                break;
+            }
+            if(i == (fields.length - 2) * 2) {
+                add(new JLabel("="), gridBag);
+                continue;
+            }
+            add(new JLabel("+"), gridBag);
         }
 
         gridBag.gridy = 3;
