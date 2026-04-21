@@ -1,6 +1,9 @@
 package driver;
 
 import javax.swing.SwingUtilities;
+
+import controller.MathleController;
+import model.Equation;
 import view.MathleView;
 
 public class MathleDriver {
@@ -8,8 +11,8 @@ public class MathleDriver {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                @SuppressWarnings("unused")
                 MathleView view  = new MathleView("Mathle", 600, 300);
+                new MathleController(new Equation(), view);
             }
         });
     }

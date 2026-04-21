@@ -5,10 +5,13 @@ import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 
 public class MathleView extends JFrame {
     private JTextField[] fields = new JTextField[] {new JTextField(), new JTextField(), new JTextField(), new JTextField()};
+    private JButton checkButton = new JButton("Check");
 
     public MathleView(String title, int screenWidth, int screenHeight) {
         GridBagConstraints gridBag = new GridBagConstraints();
@@ -25,6 +28,8 @@ public class MathleView extends JFrame {
         gridBag.gridwidth = 3;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
         add(new JLabel(title, JLabel.CENTER), gridBag);
+        gridBag.gridy = 2;
+        add(checkButton, gridBag);
         
         gridBag.ipadx = 40;
         gridBag.gridwidth = 1;
@@ -46,14 +51,12 @@ public class MathleView extends JFrame {
             add(new JLabel("+"), gridBag);
         }
 
-        gridBag.gridy = 3;
-        gridBag.gridx = 1;
-        gridBag.gridwidth = 2;
-        gridBag.fill = GridBagConstraints.HORIZONTAL;
-
-        add(new JButton("Check"), gridBag);
-
         setVisible(true);
+
+    }
+
+    public void addCheckListener(ActionListener listener) {
+        checkButton.addActionListener(listener);
 
     }
 
