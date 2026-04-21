@@ -20,13 +20,10 @@ public class Equation {
         "_/_/_=_"
     };
 
-    @SuppressWarnings("unused")
-    private int amountOfNumbers;
     private int[] numbers;
     private String format;
 
     public Equation(int[] numbers, String format) {
-        this.amountOfNumbers = numbers.length;
         this.numbers = numbers;
         this.format = format;
 
@@ -96,7 +93,7 @@ public class Equation {
     }
 
     public boolean evaluateFourDigit() {
-        if(format == null || amountOfNumbers != 4) {
+        if(format == null || numbers.length != 4) {
             return false;
         }
 

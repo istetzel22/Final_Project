@@ -1,7 +1,12 @@
 package controller;
 
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+
 import model.Equation;
 import view.MathleView;
 
@@ -35,6 +40,8 @@ public class MathleController {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("Checked");
+            view.add(new JLabel("TEST"), new GridBagConstraints(0,4,1,1,0,0,GridBagConstraints.CENTER,0,new Insets(0, 0, 0, 0),0,0));
+            view.setVisible(true);
         }
 
 
