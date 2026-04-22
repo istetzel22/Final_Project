@@ -12,7 +12,8 @@ public class MathleDriver {
             @Override
             public void run() {
                 MathleView view  = new MathleView("Mathle", 600, 300);
-                new MathleController(new Equation(), view);
+                new MathleController(new Equation(new int[] {10, 6, 4, 20}, "_+_+_=_"), view);
+
             }
         });
     }

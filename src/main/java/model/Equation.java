@@ -19,6 +19,7 @@ public class Equation {
         "_/_*_=_",
         "_/_/_=_"
     };
+    final private int YELLOW_DELTA = 5;
 
     private int[] numbers;
     private String format;
@@ -89,6 +90,17 @@ public class Equation {
             returnString.append(equation.printEquation() + "\n");
         }
         return returnString.toString();
+
+    }
+
+    public int findColor(int index, int number) {
+        if(numbers[index] == number) {
+            return 0;
+        } else if(Math.abs(numbers[index] - number) < YELLOW_DELTA) {
+            return 1;
+        } else {
+            return 2;
+        }
 
     }
 

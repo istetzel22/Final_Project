@@ -14,6 +14,7 @@ public class MathleView extends JFrame {
     private JButton checkButton = new JButton("Check");
 
     public MathleView(String title, int screenWidth, int screenHeight) {
+
         GridBagConstraints gridBag = new GridBagConstraints();
         setTitle(title);
         setSize(screenWidth, screenHeight);
@@ -59,5 +60,10 @@ public class MathleView extends JFrame {
         checkButton.addActionListener(listener);
 
     }
+
+    public int getInput1() {return Integer.parseInt(fields[0].getText());}
+    public int getInput2() {return Integer.parseInt(fields[1].getText());}
+    public int getInput3() {return Integer.parseInt(fields[2].getText());}
+    public int getInput4() {return Integer.parseInt(fields[3].getText());}
 
 }
