@@ -1,7 +1,10 @@
 package view;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JButton;
+
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -61,9 +64,32 @@ public class MathleView extends JFrame {
 
     }
 
-    public int getInput1() {return Integer.parseInt(fields[0].getText());}
-    public int getInput2() {return Integer.parseInt(fields[1].getText());}
-    public int getInput3() {return Integer.parseInt(fields[2].getText());}
-    public int getInput4() {return Integer.parseInt(fields[3].getText());}
+    public int getInput1() throws Exception {
+        if(fields[0].getText() == null) {
+            throw new Exception();
+        }
+        return Integer.parseInt(fields[0].getText());
+
+    }
+    public int getInput2() throws Exception {
+        if(fields[0].getText() == null) {
+            throw new Exception();
+        }
+        return Integer.parseInt(fields[1].getText());
+
+    }
+    public int getInput3() throws Exception {
+        if(fields[0].getText() == null) {
+                throw new Exception();
+        }
+        return Integer.parseInt(fields[2].getText());
+        
+    }
+    public int getInput4() throws Exception {
+        if(fields[0].getText() == null) {
+                throw new Exception();
+        }
+        return Integer.parseInt(fields[3].getText());
+    }
 
 }
