@@ -27,15 +27,10 @@ public class EquationListCreatorDriver {
             } else {
                 System.out.println("Failed");
             }
-            
-
 
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
-
-
-        
         
     }
     

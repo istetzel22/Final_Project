@@ -1,5 +1,7 @@
 package driver;
 
+import java.io.File;
+
 import javax.swing.SwingUtilities;
 
 import controller.MathleController;
@@ -23,7 +25,8 @@ public class MathleDriver {
                 MathleViewAttempt2 attempt2  = new MathleViewAttempt2(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
                 MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
                 MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
-                new MathleController(new MathleModel(null, new Equation(new int[] {4, 6, 10, 20}, "_+_+_=_")), attempt1, attempt2, attempt3, attempt4);
+                MathleModel model = new MathleModel(new File("equations.txt"), new Equation(new int[] {4, 6, 10, 20}, "_+_+_=_"));
+                new MathleController(model, attempt1, attempt2, attempt3, attempt4);
 
             }
         });
