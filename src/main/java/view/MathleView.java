@@ -1,4 +1,5 @@
 package view;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -6,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class MathleView extends JFrame {
@@ -23,6 +25,14 @@ public class MathleView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridBagLayout());
         gridBag.insets = new Insets(INSET_DISTANCE, INSET_DISTANCE, INSET_DISTANCE, INSET_DISTANCE);
+
+        gridBag.gridy = 0;
+        gridBag.gridx = 5;
+        gridBag.gridwidth = GridBagConstraints.REMAINDER;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
+        JLabel label = new JLabel(title);
+        label.setFont(new Font("Serif", Font.PLAIN, 24)); 
+        add(label, gridBag);
         
     }
 

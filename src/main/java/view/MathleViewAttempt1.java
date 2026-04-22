@@ -1,7 +1,4 @@
 package view;
-
-import java.awt.Font;
-
 import javax.swing.JLabel;
 
 public class MathleViewAttempt1 extends MathleView {
@@ -9,6 +6,8 @@ public class MathleViewAttempt1 extends MathleView {
         super(title, screenWidth, screenHeight);
         add(new JLabel("1"), gridBag);
         add(checkButton);
+
+
         
     }
 
