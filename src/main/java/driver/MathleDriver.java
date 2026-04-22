@@ -4,15 +4,26 @@ import javax.swing.SwingUtilities;
 
 import controller.MathleController;
 import model.Equation;
-import view.MathleView;
+import model.MathleModel;
+import view.MathleViewAttempt1;
+import view.MathleViewAttempt2;
+import view.MathleViewAttempt3;
+import view.MathleViewAttempt4;
 
 public class MathleDriver {
     public static void main(String[] args) {
+        final String TITLE = "Mathle";
+        final int SCREEN_WIDTH = 600;
+        final int SCREEN_HEIGHT = 300;
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MathleView view  = new MathleView("Mathle", 600, 300);
-                new MathleController(new Equation(new int[] {10, 6, 4, 20}, "_+_+_=_"), view);
+                MathleViewAttempt1 attempt1  = new MathleViewAttempt1(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
+                MathleViewAttempt2 attempt2  = new MathleViewAttempt2(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
+                MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
+                MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
+                new MathleController(new MathleModel(null, new Equation(new int[] {4, 6, 10, 20}, "_+_+_=_")), attempt1, attempt2, attempt3, attempt4);
 
             }
         });

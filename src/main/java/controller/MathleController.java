@@ -1,89 +1,59 @@
 package controller;
 
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import model.Equation;
-import view.MathleView;
+import model.MathleModel;
+import view.MathleViewAttempt1;
+import view.MathleViewAttempt2;
+import view.MathleViewAttempt3;
+import view.MathleViewAttempt4;
 
 public class MathleController {
-    private Equation model;
-    private MathleView view;
+    private MathleModel model;
+    private MathleViewAttempt1 attempt1;
+    private MathleViewAttempt2 attempt2;
+    private MathleViewAttempt3 attempt3;
+    private MathleViewAttempt4 attempt4;
 
-    public MathleController(Equation model, MathleView view) {
+    public MathleController(MathleModel model, MathleViewAttempt1 attempt1, MathleViewAttempt2 attempt2, MathleViewAttempt3 attempt3, MathleViewAttempt4 attempt4) {
         this.model = model;
-        this.view = view;
+        this.attempt1 = attempt1;
+        this.attempt2 = attempt2;
+        this.attempt3 = attempt3;
+        this.attempt4 = attempt4;
         initalizeListener();
 
     }
 
     private void initalizeListener() {
-        checkListener checkListener = new checkListener(model, view);
-        view.addCheckListener(checkListener);
+        checkListener checkListener = new checkListener(model, attempt1, attempt2, attempt3, attempt4);
+        attempt1.addCheckListener(checkListener);
+        attempt1.addCheckListener(checkListener);
+        attempt1.addCheckListener(checkListener);
+        attempt1.addCheckListener(checkListener);
 
     }
 
     public class checkListener implements ActionListener {
-        private Equation model;
-        private MathleView view;
+        private MathleModel model;
+        private MathleViewAttempt1 attempt1;
+        private MathleViewAttempt2 attempt2;
+        private MathleViewAttempt3 attempt3;
+        private MathleViewAttempt4 attempt4;
 
-        public checkListener(Equation model, MathleView view) {
+
+        public checkListener(MathleModel model, MathleViewAttempt1 attempt1, MathleViewAttempt2 attempt2, MathleViewAttempt3 attempt3, MathleViewAttempt4 attempt4) {
             this.model = model;
-            this.view = view;
+            this.attempt1 = attempt1;
+            this.attempt2 = attempt2;
+            this.attempt3 = attempt3;
+            this.attempt4 = attempt4;
 
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            GridBagConstraints gridBag = new GridBagConstraints(0,4,1,1,0,0,GridBagConstraints.CENTER,0,new Insets(0, 0, 0, 0),0,0);
-            JPanel color = new JPanel();
-            color.setBackground(new Color(30,200,10));
-
-            try {
-                gridBag.gridx = 0;
-                if(model.findColor(0, view.getInput1()) == 0) {
-                view.add(new JLabel("Correct"), gridBag);
-                gridBag.gridwidth = 3;
-                gridBag.fill = GridBagConstraints.HORIZONTAL;
-                view.add(color, gridBag);
-            }
-            } catch (Exception ex) {}
-            try {
-                gridBag.gridx = 2;
-                if(model.findColor(1, view.getInput2()) == 0) {
-                view.add(new JLabel("Correct"), gridBag);
-                gridBag.gridwidth = 3;
-                gridBag.fill = GridBagConstraints.HORIZONTAL;
-                view.add(color, gridBag);
-            }
-            } catch (Exception ex) {}
-            try {
-                gridBag.gridx = 4;
-                if(model.findColor(2, view.getInput3()) == 0) {
-                view.add(new JLabel("Correct"), gridBag);
-                gridBag.gridwidth = 3;
-                gridBag.fill = GridBagConstraints.HORIZONTAL;                
-                view.add(color, gridBag);
-            }
-            } catch (Exception ex) {}
-            try {
-                gridBag.gridx = 6;
-                if(model.findColor(3, view.getInput4()) == 0) {
-                view.add(new JLabel("Correct"), gridBag);
-                gridBag.gridwidth = 3;
-                gridBag.fill = GridBagConstraints.HORIZONTAL;
-                view.add(color, gridBag);
-                
-            }
-            } catch (Exception ex) {}
-
-            view.setVisible(true);
+            System.out.println("TEST");
 
         }
 

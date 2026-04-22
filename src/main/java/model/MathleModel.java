@@ -1,5 +1,10 @@
 package model;
+import java.io.File;
 
 public class MathleModel {
-    //not sure if i either need this, or just use the Equation class and the driver?
+    public Equation equation;
+
+    public MathleModel(File fileLocation, Equation equation) {
+        this.equation = equation;
+    }
 }
