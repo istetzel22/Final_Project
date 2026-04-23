@@ -74,17 +74,20 @@ public class MathleController {
                     
                     break;
                 case ATTEMPT_2:
-                    try {
-                        for (int i = 0; i < attempt2.getFieldColors().length; i++) {
-                            Color color = model.getEquation().findColor(attempt2.getInputBox1(), i);
-                            attempt2.setFieldColorElement(color, i);
-                            attempt2.setPannelColor(i, model.getCurrentAttempt());
-
+                    for (int i = 0; i < attempt1.getFieldColors().length; i++) {
+                        Color color;
+                        try {
+                            color = model.getEquation().findColor(i, attempt1.getInputBox1());
+                            
+                        } catch (Exception ex) {
+                            color = MathleView.GRAY_PANNEL_COLOR;
                         }
+                        System.out.println(color);
+                        attempt2.setFieldColorElement(color, i);
+                        attempt2.setPannelColor(i, model.getCurrentAttempt());
                         
-                    } catch (Exception ex) {
-                        System.out.println(ex.getMessage());
                     }
+
                     attempt1.setVisible(false);
                     attempt2.setVisible(true);
                     attempt3.setVisible(false);

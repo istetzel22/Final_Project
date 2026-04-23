@@ -126,11 +126,17 @@ public class MathleView extends JFrame {
     }
 
     public void setPannelColor(int x, int y) {
-        System.out.println("PANNEL" + x + " " + fieldColors[x / 2]);
+        if(x < 0 || x > fieldColors.length || y < 0 || y >= NUM_ATTEMPTS - 1) {
+            throw new IllegalArgumentException();
+        }
+        
         JPanel panel = new JPanel();
-        panel.setBackground(fieldColors[x / 2]);
+        panel.setBackground(fieldColors[x]);
+
         gridBag.gridx = x * 2;
         gridBag.gridy = y;
+        gridBag.gridwidth = 1;
+
         add(panel, gridBag);
 
     }
