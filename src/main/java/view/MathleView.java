@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Equation;
+import model.MathleModel;
 
 public class MathleView extends JFrame {
     public static final Color GRAY_PANNEL_COLOR = new Color(50,50,50);
@@ -29,6 +30,8 @@ public class MathleView extends JFrame {
     JButton checkButton = new JButton("Check");
     GridBagConstraints gridBag;
     Equation equation;
+
+    int currentAttempt;
 
     
     public MathleView(String title, int screenWidth, int screenHeight, Equation equation, int currentAttempt) {
@@ -120,18 +123,18 @@ public class MathleView extends JFrame {
     }
     public int getInputBox4() throws Exception {
         if(fields[0].getText() == null) {
-                throw new Exception();
+            throw new Exception();
         }
         return Integer.parseInt(fields[3].getText());
     }
 
-    public void setPannelColor(int x, int y) {
-        if(x < 0 || x > fieldColors.length || y < 0 || y >= NUM_ATTEMPTS - 1) {
+    public void setPannelColor(int x, int y, MathleView fieldColorAttempt) {
+        if(x < 0 || x > fieldColorAttempt.fieldColors.length || y < 0 || y > NUM_ATTEMPTS - 1) {
             throw new IllegalArgumentException();
         }
-        
+
         JPanel panel = new JPanel();
-        panel.setBackground(fieldColors[x]);
+        panel.setBackground(fieldColorAttempt.fieldColors[x]);
 
         gridBag.gridx = x * 2;
         gridBag.gridy = y;
@@ -140,5 +143,50 @@ public class MathleView extends JFrame {
         add(panel, gridBag);
 
     }
-    
+
+    public void findColors(MathleView previousAttempt, MathleModel model) {
+        for (int i = 0; i < previousAttempt.getFieldColors().length; i++) {
+            Color color;
+            try {
+                switch (i) {
+                    case 0:
+                        color = model.getEquation().findColor(i, previousAttempt.getInputBox1());
+
+                        break;
+                    case 1:
+                        color = model.getEquation().findColor(i, previousAttempt.getInputBox2());
+
+                        break;
+                    case 2:
+                        color = model.getEquation().findColor(i, previousAttempt.getInputBox3());
+
+                        break;
+                    case 3:
+                        color = model.getEquation().findColor(i, previousAttempt.getInputBox4());
+
+                        break;
+                    default:
+                        color = MathleView.GRAY_PANNEL_COLOR;
+                        break;
+
+                }
+
+            } catch (Exception ex) {
+                color = MathleView.GRAY_PANNEL_COLOR;
+
+            }
+            setFieldColorElement(color, i);
+
+        }
+
+    }
+
+    public void setColors(MathleView attempt) {
+        for (int i = 0; i < fieldColors.length; i++) {
+           setPannelColor(i, attempt.currentAttempt - 1, attempt);
+
+        }
+
+    }
+
 }
