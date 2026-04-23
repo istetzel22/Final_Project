@@ -121,7 +121,7 @@ public class MathleController {
 
                     break;
                 case FINAL_VIEW:
-                    finalView.findColors(attempt3, model);
+                    finalView.findColors(attempt4, model);
 
                     finalView.setColors(attempt1);
                     finalView.setColors(attempt2);
