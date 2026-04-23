@@ -1,7 +1,10 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import model.Equation;
 import model.MathleModel;
 import view.MathleView;
 import view.MathleViewAttempt1;
@@ -63,18 +66,30 @@ public class MathleController {
 
             switch (currentAttempt) {
                 case ATTEMPT_1:
+                    
                     attempt1.setVisible(true);
                     attempt2.setVisible(false);
                     attempt3.setVisible(false);
                     attempt4.setVisible(false);
-
+                    
                     break;
                 case ATTEMPT_2:
+                    try {
+                        for (int i = 0; i < attempt2.getFieldColors().length; i++) {
+                            Color color = model.getEquation().findColor(attempt2.getInputBox1(), i);
+                            attempt2.setFieldColorElement(color, i);
+                            attempt2.setPannelColor(i, model.getCurrentAttempt());
+
+                        }
+                        
+                    } catch (Exception ex) {
+                        System.out.println(ex.getMessage());
+                    }
                     attempt1.setVisible(false);
                     attempt2.setVisible(true);
                     attempt3.setVisible(false);
                     attempt4.setVisible(false);
-
+                    
                     break;
                 case ATTEMPT_3:
                     attempt1.setVisible(false);

@@ -1,5 +1,9 @@
 package model;
 
+import java.awt.Color;
+
+import view.MathleView;
+
 public class Equation {
     final public static String[] FOUR_DIGIT_VAILD_ARRAY = {
         "_+_+_=_",
@@ -93,13 +97,13 @@ public class Equation {
 
     }
 
-    public int findColor(int index, int number) {
+    public Color findColor(int index, int number) {
         if(numbers[index] == number) {
-            return 0;
+            return MathleView.GREEN_PANNEL_COLOR;
         } else if(Math.abs(numbers[index] - number) < YELLOW_DELTA) {
-            return 1;
+            return MathleView.YELLOW_PANNEL_COLOR;
         } else {
-            return 2;
+            return MathleView.GRAY_PANNEL_COLOR;
         }
 
     }
