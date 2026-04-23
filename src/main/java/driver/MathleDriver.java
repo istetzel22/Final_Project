@@ -18,14 +18,17 @@ public class MathleDriver {
         final int SCREEN_WIDTH = 600;
         final int SCREEN_HEIGHT = 300;
 
+        Equation equation = new Equation(new int[] {4, 6, 10, 20}, "_+_+_=_");
+
         SwingUtilities.invokeLater(new Runnable() {
+
             @Override
             public void run() {
-                MathleViewAttempt1 attempt1  = new MathleViewAttempt1(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
-                MathleViewAttempt2 attempt2  = new MathleViewAttempt2(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
-                MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
-                MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
-                MathleModel model = new MathleModel(new File("equations.txt"), new Equation(new int[] {4, 6, 10, 20}, "_+_+_=_"));
+                MathleViewAttempt1 attempt1  = new MathleViewAttempt1(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation);
+                MathleViewAttempt2 attempt2  = new MathleViewAttempt2(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation);
+                MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation);
+                MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation);
+                MathleModel model = new MathleModel(new File("equations.txt"), equation);
                 new MathleController(model, attempt1, attempt2, attempt3, attempt4);
 
             }
