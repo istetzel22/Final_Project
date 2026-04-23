@@ -1,6 +1,4 @@
 package controller;
-
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,20 +16,22 @@ public class MathleController {
     private MathleViewAttempt2 attempt2;
     private MathleViewAttempt3 attempt3;
     private MathleViewAttempt4 attempt4;
+    private MathleView finalView;
     
-    public MathleController(MathleModel model, MathleViewAttempt1 attempt1, MathleViewAttempt2 attempt2, MathleViewAttempt3 attempt3, MathleViewAttempt4 attempt4) {
+    public MathleController(MathleModel model, MathleViewAttempt1 attempt1, MathleViewAttempt2 attempt2, MathleViewAttempt3 attempt3, MathleViewAttempt4 attempt4, MathleView finalView) {
         this.model = model;
         this.attempt1 = attempt1;
         this.attempt2 = attempt2;
         this.attempt3 = attempt3;
         this.attempt4 = attempt4;
+        this.finalView = finalView;
         initalizeListeners();
         attempt1.setVisible(true);
         
     }
 
     private void initalizeListeners() {
-        checkListener checkListener = new checkListener(model, attempt1, attempt2, attempt3, attempt4);
+        checkListener checkListener = new checkListener(model, attempt1, attempt2, attempt3, attempt4, finalView);
         attempt1.addCheckListener(checkListener);
         attempt2.addCheckListener(checkListener);
         attempt3.addCheckListener(checkListener);
@@ -45,15 +45,17 @@ public class MathleController {
         private MathleView attempt2;
         private MathleView attempt3;
         private MathleView attempt4;
+        private MathleView finalView;
         
-        enum Attempts {ATTEMPT_1, ATTEMPT_2, ATTEMPT_3, ATTEMPT_4}
+        enum Views {ATTEMPT_1, ATTEMPT_2, ATTEMPT_3, ATTEMPT_4, FINAL_VIEW}
         
-        public checkListener(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4) {
+        public checkListener(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView finalView) {
             this.model = model;
             this.attempt1 = attempt1;
             this.attempt2 = attempt2;
             this.attempt3 = attempt3;
             this.attempt4 = attempt4;
+            this.finalView = finalView;
             
         }
         
@@ -61,7 +63,7 @@ public class MathleController {
         public void actionPerformed(ActionEvent e) {
             model.updateCurrentAttempt();
 
-            Attempts currentAttempt = Attempts.values()[model.getCurrentAttempt()];
+            Views currentAttempt = Views.values()[model.getCurrentAttempt()];
 
             switch (currentAttempt) {
                 case ATTEMPT_1:
