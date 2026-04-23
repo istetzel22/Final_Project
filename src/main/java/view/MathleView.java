@@ -30,13 +30,13 @@ public class MathleView extends JFrame {
     JButton checkButton = new JButton("Check");
     GridBagConstraints gridBag;
     Equation equation;
-
+    
     int currentAttempt;
-
     
     public MathleView(String title, int screenWidth, int screenHeight, Equation equation, int currentAttempt) {
         gridBag = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(INSET_DISTANCE, INSET_DISTANCE, INSET_DISTANCE, INSET_DISTANCE), IPAD, 0);
         fieldColors = new Color[fields.length];
+        this.currentAttempt = currentAttempt;
         setEquation(equation);
         setTitle(title);
         setSize(screenWidth, screenHeight);
@@ -129,7 +129,7 @@ public class MathleView extends JFrame {
     }
 
     public void setPannelColor(int x, int y, MathleView fieldColorAttempt) {
-        if(x < 0 || x > fieldColorAttempt.fieldColors.length || y < 0 || y > NUM_ATTEMPTS - 1) {
+        if(x < 0 || x >= fieldColorAttempt.fieldColors.length || y < 0 || y > NUM_ATTEMPTS) {
             throw new IllegalArgumentException();
         }
 
