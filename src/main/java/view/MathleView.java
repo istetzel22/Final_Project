@@ -1,4 +1,5 @@
 package view;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -7,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Equation;
@@ -18,13 +20,18 @@ public class MathleView extends JFrame {
     final int MAX_Y = 4;
     final int IPAD = 10;
 
-    protected JTextField[] fields = new JTextField[] {new JTextField(), new JTextField(), new JTextField(), new JTextField()};
-    protected JButton checkButton = new JButton("Check");
-    protected GridBagConstraints gridBag;
-    protected Equation equation;
+    final Color GREEN_PANNEL_COLOR = new Color(0,200,30);
+    final Color YELLOW_PANNEL_COLOR = new Color(155,155,30);
+    final Color GRAY_PANNEL_COLOR = new Color(50,50,50);
+
+    JTextField[] fields = new JTextField[] {new JTextField(), new JTextField(), new JTextField(), new JTextField()};
+    JButton checkButton = new JButton("Check");
+    GridBagConstraints gridBag;
+    Equation equation;
 
     
     public MathleView(String title, int screenWidth, int screenHeight, Equation equation, int currentAttempt) {
+
         gridBag = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(INSET_DISTANCE, INSET_DISTANCE, INSET_DISTANCE, INSET_DISTANCE), IPAD, 0);
         setEquation(equation);
         setTitle(title);
@@ -44,8 +51,14 @@ public class MathleView extends JFrame {
                     if(i == currentAttempt - 1) {
                         add(fields[j / 2], gridBag);
 
-                    } else {
+                    } else if(i > currentAttempt - 1) {
                         add(new JLabel("___"), gridBag);
+
+                    } else {
+                        JPanel panel = new JPanel();
+                        panel.setBackground(GREEN_PANNEL_COLOR);
+                        add(panel, gridBag);
+
                     }
 
                 } else {
