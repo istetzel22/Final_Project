@@ -15,7 +15,7 @@ import model.Equation;
 import model.MathleModel;
 
 public class MathleView extends JFrame {
-    public static final Color GRAY_PANNEL_COLOR = new Color(50,50,50);
+    public static final Color GRAY_PANNEL_COLOR = new Color(150,150,150);
     public static final Color GREEN_PANNEL_COLOR = new Color(0,200,30);
     public static final Color YELLOW_PANNEL_COLOR = new Color(155,155,30);
 
@@ -139,7 +139,36 @@ public class MathleView extends JFrame {
         gridBag.gridx = x * 2;
         gridBag.gridy = y;
         gridBag.gridwidth = 1;
+        
 
+        try {
+            JLabel label;
+            switch (x) {
+                case 0:
+                    label = new JLabel(fieldColorAttempt.getInputBox1() + "");
+
+                    break;
+                case 1:
+                    label = new JLabel(fieldColorAttempt.getInputBox2() + "");
+
+                    break;
+                case 2:
+                    label = new JLabel(fieldColorAttempt.getInputBox3() + "");
+
+                    break;
+                case 3:
+                    label = new JLabel(fieldColorAttempt.getInputBox4() + "");
+
+                    break;
+                default:
+                    label = new JLabel();
+                    break;
+
+            }
+            panel.add(label, gridBag);
+
+        } catch (Exception e) {
+        }
         add(panel, gridBag);
 
     }
@@ -184,7 +213,7 @@ public class MathleView extends JFrame {
     public void setColors(MathleView attempt) {
         for (int i = 0; i < fieldColors.length; i++) {
            setPannelColor(i, attempt.currentAttempt - 1, attempt);
-
+           
         }
 
     }
