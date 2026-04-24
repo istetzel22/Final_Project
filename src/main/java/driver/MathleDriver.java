@@ -19,7 +19,7 @@ public class MathleDriver {
         final int SCREEN_WIDTH = 600;
         final int SCREEN_HEIGHT = 300;
 
-        Equation equation = new Equation(new int[] {4, 6, 10, 20}, "_+_+_=_");
+        Equation equation = new Equation(new int[] {16, 6, 2, 13}, "_-_/_=_");
 
         SwingUtilities.invokeLater(new Runnable() {
 

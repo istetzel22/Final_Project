@@ -64,25 +64,13 @@ public class MathleController {
             model.updateCurrentAttempt();
 
             Views currentAttempt = Views.values()[model.getCurrentAttempt()];
+            System.out.println(currentAttempt);
 
             switch (currentAttempt) {
-                case ATTEMPT_1:
+                case ATTEMPT_2:
                     attempt1.findColors(attempt1, model);
 
-                    attempt1.setColors(attempt1);
-                    
-                    attempt1.setVisible(true);
-                    attempt2.setVisible(false);
-                    attempt3.setVisible(false);
-                    attempt4.setVisible(false);
-                    finalView.setVisible(false);
-                    
-                    break;
-                case ATTEMPT_2:
-                    attempt2.findColors(attempt1, model);
-
                     attempt2.setColors(attempt1);
-                    attempt2.setColors(attempt2);
 
                     attempt1.setVisible(false);
                     attempt2.setVisible(true);
@@ -92,11 +80,10 @@ public class MathleController {
                     
                     break;
                 case ATTEMPT_3:
-                    attempt3.findColors(attempt2, model);
+                    attempt2.findColors(attempt2, model);
 
                     attempt3.setColors(attempt1);
                     attempt3.setColors(attempt2);
-                    attempt3.setColors(attempt3);
 
                     attempt1.setVisible(false);
                     attempt2.setVisible(false);
@@ -106,12 +93,11 @@ public class MathleController {
 
                     break;
                 case ATTEMPT_4:
-                    attempt4.findColors(attempt3, model);
+                    attempt3.findColors(attempt3, model);
 
                     attempt4.setColors(attempt1);
                     attempt4.setColors(attempt2);
                     attempt4.setColors(attempt3);
-                    attempt4.setColors(attempt4);
 
                     attempt1.setVisible(false);
                     attempt2.setVisible(false);
@@ -121,13 +107,12 @@ public class MathleController {
 
                     break;
                 case FINAL_VIEW:
-                    finalView.findColors(attempt4, model);
+                    attempt4.findColors(attempt4, model);
 
                     finalView.setColors(attempt1);
                     finalView.setColors(attempt2);
                     finalView.setColors(attempt3);
                     finalView.setColors(attempt4);
-                    finalView.setColors(finalView);
 
                     attempt1.setVisible(false);
                     attempt2.setVisible(false);

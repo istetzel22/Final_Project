@@ -141,8 +141,8 @@ public class MathleView extends JFrame {
         gridBag.gridwidth = 1;
         
 
+        JLabel label = new JLabel();
         try {
-            JLabel label;
             switch (x) {
                 case 0:
                     label = new JLabel(fieldColorAttempt.getInputBox1() + "");
@@ -165,10 +165,12 @@ public class MathleView extends JFrame {
                     break;
 
             }
-            panel.add(label, gridBag);
-
+            panel.add(label);
+            
         } catch (Exception e) {
         }
+
+        panel.add(label);
         add(panel, gridBag);
 
     }
@@ -210,9 +212,9 @@ public class MathleView extends JFrame {
 
     }
 
-    public void setColors(MathleView attempt) {
-        for (int i = 0; i < fieldColors.length; i++) {
-           setPannelColor(i, attempt.currentAttempt - 1, attempt);
+    public void setColors(MathleView view) {
+        for (int i = 0; i < view.fieldColors.length; i++) {
+           setPannelColor(i, view.currentAttempt, view);
            
         }
 
