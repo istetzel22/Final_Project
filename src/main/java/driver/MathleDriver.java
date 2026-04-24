@@ -30,7 +30,7 @@ public class MathleDriver {
                 MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 3);
                 MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 4);
                 MathleView finalView = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 5);
-                MathleModel model = new MathleModel(new File("equations.txt"), equation);
+                MathleModel model = new MathleModel(new File("equations.txt"));
                 new MathleController(model, attempt1, attempt2, attempt3, attempt4, finalView);
 
             }
