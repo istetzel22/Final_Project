@@ -64,7 +64,6 @@ public class MathleController {
             model.updateCurrentAttempt();
 
             Views currentAttempt = Views.values()[model.getCurrentAttempt()];
-            System.out.println(currentAttempt);
 
             switch (currentAttempt) {
                 case ATTEMPT_2:

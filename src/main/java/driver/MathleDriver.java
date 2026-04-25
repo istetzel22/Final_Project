@@ -18,22 +18,28 @@ public class MathleDriver {
         final String TITLE = "Mathle";
         final int SCREEN_WIDTH = 600;
         final int SCREEN_HEIGHT = 300;
+        final int AMOUNT_OF_NUMBERS = 4;
 
-        Equation equation = new Equation(new int[] {16, 6, 2, 13}, "_-_/_=_");
+        SwingUtilities.invokeLater(
+            new Runnable() {
 
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                MathleViewAttempt1 attempt1  = new MathleViewAttempt1(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 1);
-                MathleViewAttempt2 attempt2  = new MathleViewAttempt2(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 2);
-                MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 3);
-                MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 4);
-                MathleView finalView = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, equation, 5);
-                MathleModel model = new MathleModel(new File("equations.txt"));
-                new MathleController(model, attempt1, attempt2, attempt3, attempt4, finalView);
+                @Override
+                public void run() {
+                    MathleModel model = new MathleModel(new File("equations.txt"), AMOUNT_OF_NUMBERS);
+                    MathleViewAttempt1 attempt1  = new MathleViewAttempt1(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 1);
+                    MathleViewAttempt2 attempt2  = new MathleViewAttempt2(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 2);
+                    MathleViewAttempt3 attempt3  = new MathleViewAttempt3(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 3);
+                    MathleViewAttempt4 attempt4  = new MathleViewAttempt4(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 4);
+                    MathleView finalView = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 5);
+                    new MathleController(model, attempt1, attempt2, attempt3, attempt4, finalView);
+                    
+                }
 
             }
-        });
+
+
+        );
+
     }
+
 }

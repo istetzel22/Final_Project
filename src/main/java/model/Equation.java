@@ -23,6 +23,9 @@ public class Equation {
         "_/_*_=_",
         "_/_/_=_"
     };
+    final public static String FORMAT_DELIMITER = ",";
+    final public static String NUMBER_DELIMITER = " ";
+
     final private int YELLOW_DELTA = 5;
 
     private int[] numbers;
