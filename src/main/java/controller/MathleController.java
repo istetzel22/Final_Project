@@ -12,14 +12,16 @@ public class MathleController {
     private MathleView attempt2;
     private MathleView attempt3;
     private MathleView attempt4;
+    private MathleView attempt5;
     private MathleView finalView;
     
-    public MathleController(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView finalView) {
+    public MathleController(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView attempt5, MathleView finalView) {
         this.model = model;
         this.attempt1 = attempt1;
         this.attempt2 = attempt2;
         this.attempt3 = attempt3;
         this.attempt4 = attempt4;
+        this.attempt5 = attempt5;
         this.finalView = finalView;
         initalizeListeners();
         attempt1.setVisible(true);
@@ -27,11 +29,12 @@ public class MathleController {
     }
 
     private void initalizeListeners() {
-        checkListener checkListener = new checkListener(model, attempt1, attempt2, attempt3, attempt4, finalView);
+        checkListener checkListener = new checkListener(model, attempt1, attempt2, attempt3, attempt4, attempt5, finalView);
         attempt1.addCheckListener(checkListener);
         attempt2.addCheckListener(checkListener);
         attempt3.addCheckListener(checkListener);
         attempt4.addCheckListener(checkListener);
+        attempt5.addCheckListener(checkListener);
         
     }
     
@@ -41,16 +44,18 @@ public class MathleController {
         private MathleView attempt2;
         private MathleView attempt3;
         private MathleView attempt4;
+        private MathleView attempt5;
         private MathleView finalView;
         
-        enum Views {ATTEMPT_1, ATTEMPT_2, ATTEMPT_3, ATTEMPT_4, FINAL_VIEW}
+        enum Views {ATTEMPT_1, ATTEMPT_2, ATTEMPT_3, ATTEMPT_4, ATTEMPT_5, FINAL_VIEW}
         
-        public checkListener(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView finalView) {
+        public checkListener(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView attempt5, MathleView finalView) {
             this.model = model;
             this.attempt1 = attempt1;
             this.attempt2 = attempt2;
             this.attempt3 = attempt3;
             this.attempt4 = attempt4;
+            this.attempt5 = attempt5;
             this.finalView = finalView;
             
         }
@@ -60,6 +65,7 @@ public class MathleController {
             model.updateCurrentAttempt();
 
             Views currentAttempt = Views.values()[model.getCurrentAttempt()];
+            System.out.println(currentAttempt);
 
             switch (currentAttempt) {
                 case ATTEMPT_2:
@@ -71,6 +77,7 @@ public class MathleController {
                     attempt2.setVisible(true);
                     attempt3.setVisible(false);
                     attempt4.setVisible(false);
+                    attempt5.setVisible(false);
                     finalView.setVisible(false);
                     
                     break;
@@ -84,6 +91,7 @@ public class MathleController {
                     attempt2.setVisible(false);
                     attempt3.setVisible(true);
                     attempt4.setVisible(false);
+                    attempt5.setVisible(false);
                     finalView.setVisible(false);
 
                     break;
@@ -98,6 +106,22 @@ public class MathleController {
                     attempt2.setVisible(false);
                     attempt3.setVisible(false);
                     attempt4.setVisible(true);
+                    attempt5.setVisible(false);
+                    finalView.setVisible(false);
+                
+                case ATTEMPT_5:
+                    attempt4.findColors(attempt4, model);
+
+                    attempt5.setColors(attempt1);
+                    attempt5.setColors(attempt2);
+                    attempt5.setColors(attempt3);
+                    attempt5.setColors(attempt4);
+
+                    attempt1.setVisible(false);
+                    attempt2.setVisible(false);
+                    attempt3.setVisible(false);
+                    attempt4.setVisible(false);
+                    attempt5.setVisible(true);
                     finalView.setVisible(false);
 
                     break;
@@ -113,6 +137,7 @@ public class MathleController {
                     attempt2.setVisible(false);
                     attempt3.setVisible(false);
                     attempt4.setVisible(false);
+                    attempt5.setVisible(false);
                     finalView.setVisible(true);
 
                 default:
@@ -120,6 +145,8 @@ public class MathleController {
                     attempt2.setVisible(false);
                     attempt3.setVisible(false);
                     attempt4.setVisible(false);
+                    attempt5.setVisible(false);
+                    finalView.setVisible(false);
 
                     break;
 

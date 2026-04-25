@@ -20,9 +20,9 @@ public class MathleView extends JFrame {
     public static final Color YELLOW_PANNEL_COLOR = new Color(155,155,30);
 
     final int INSET_DISTANCE = 10;
-    final int NUM_ATTEMPTS = 4;
+    final int NUM_ATTEMPTS = 5;
     final int MAX_X = 7;
-    final int MAX_Y = 4;
+    final int MAX_Y = NUM_ATTEMPTS;
     final int IPAD = 10;
 
     JTextField[] fields = new JTextField[] {new JTextField(), new JTextField(), new JTextField(), new JTextField()};
