@@ -4,21 +4,17 @@ import java.awt.event.ActionListener;
 
 import model.MathleModel;
 import view.MathleView;
-import view.MathleViewAttempt1;
-import view.MathleViewAttempt2;
-import view.MathleViewAttempt3;
-import view.MathleViewAttempt4;
 
 public class MathleController {
     
     private MathleModel model;
-    private MathleViewAttempt1 attempt1;
-    private MathleViewAttempt2 attempt2;
-    private MathleViewAttempt3 attempt3;
-    private MathleViewAttempt4 attempt4;
+    private MathleView attempt1;
+    private MathleView attempt2;
+    private MathleView attempt3;
+    private MathleView attempt4;
     private MathleView finalView;
     
-    public MathleController(MathleModel model, MathleViewAttempt1 attempt1, MathleViewAttempt2 attempt2, MathleViewAttempt3 attempt3, MathleViewAttempt4 attempt4, MathleView finalView) {
+    public MathleController(MathleModel model, MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView finalView) {
         this.model = model;
         this.attempt1 = attempt1;
         this.attempt2 = attempt2;
