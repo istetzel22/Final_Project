@@ -18,6 +18,7 @@ public class MathleView extends JFrame {
     public static final Color GRAY_PANNEL_COLOR = new Color(150,150,150);
     public static final Color GREEN_PANNEL_COLOR = new Color(0,200,30);
     public static final Color YELLOW_PANNEL_COLOR = new Color(155,155,30);
+    public static final Color ORANGE_PANNEL_COLOR = new Color(255, 129, 0);
 
     final int INSET_DISTANCE = 10;
     final int NUM_ATTEMPTS = 5;
