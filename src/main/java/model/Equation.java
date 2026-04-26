@@ -103,11 +103,13 @@ public class Equation {
     public Color findColor(int index, int number) {
         if(numbers[index] == number) {
             return MathleView.GREEN_PANNEL_COLOR;
-        } else if(numbers[index] - number < NEAR_DELTA) {
-            if(numbers[index] - number < 0) {
+        } else if(Math.abs(numbers[index] - number) < NEAR_DELTA) {
+            if(numbers[index] - number > 0) {
                 return MathleView.ORANGE_PANNEL_COLOR;
+
             } else {
                 return MathleView.YELLOW_PANNEL_COLOR;
+
             }
 
         } else {

@@ -28,7 +28,6 @@ public class MathleDriver {
                     MathleView attempt5 = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 5);
                     MathleView finalView = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 6);
                     new MathleController(model, attempt1, attempt2, attempt3, attempt4, attempt5, finalView);
-                    System.out.println(model.getEquation());
 
                 }
 
