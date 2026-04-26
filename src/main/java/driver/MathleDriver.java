@@ -6,7 +6,8 @@ import javax.swing.SwingUtilities;
 
 import controller.MathleController;
 import model.MathleModel;
-import view.MathleView;
+import view.MathleViewAttempt;
+import view.MathleViewFinalView;
 
 public class MathleDriver {
     public static void main(String[] args) {
@@ -21,12 +22,12 @@ public class MathleDriver {
                 @Override
                 public void run() {
                     MathleModel model = new MathleModel(new File("equations.txt"), AMOUNT_OF_NUMBERS);
-                    MathleView attempt1 = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 1);
-                    MathleView attempt2 = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 2);
-                    MathleView attempt3 = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 3);
-                    MathleView attempt4 = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 4);
-                    MathleView attempt5 = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 5);
-                    MathleView finalView = new MathleView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 6);
+                    MathleViewAttempt attempt1 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 1);
+                    MathleViewAttempt attempt2 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 2);
+                    MathleViewAttempt attempt3 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 3);
+                    MathleViewAttempt attempt4 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 4);
+                    MathleViewAttempt attempt5 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 5);
+                    MathleViewFinalView finalView = new MathleViewFinalView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 6);
                     new MathleController(model, attempt1, attempt2, attempt3, attempt4, attempt5, finalView);
 
                 }

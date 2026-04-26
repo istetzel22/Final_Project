@@ -72,7 +72,6 @@ public class MathleView extends JFrame {
         gridBag.gridy++;
         gridBag.gridx = MAX_X / 2 - 1;
         gridBag.gridwidth = 3;
-        add(checkButton, gridBag);
         
     }
 
