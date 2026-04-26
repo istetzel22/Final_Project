@@ -26,7 +26,7 @@ public class Equation {
     final public static String FORMAT_DELIMITER = ",";
     final public static String NUMBER_DELIMITER = " ";
 
-    final private int NEAR_DELTA = 5;
+    final private int NEAR_DELTA = 4;
 
     private int[] numbers;
     private String format;
@@ -103,7 +103,7 @@ public class Equation {
     public Color findColor(int index, int number) {
         if(numbers[index] == number) {
             return MathleView.GREEN_PANNEL_COLOR;
-        } else if(Math.abs(numbers[index] - number) < NEAR_DELTA) {
+        } else if(Math.abs(numbers[index] - number) <= NEAR_DELTA) {
             if(numbers[index] - number > 0) {
                 return MathleView.ORANGE_PANNEL_COLOR;
 

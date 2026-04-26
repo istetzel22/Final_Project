@@ -140,6 +140,7 @@ public class MathleController {
                     attempt4.setVisible(false);
                     attempt5.setVisible(false);
                     finalView.setVisible(true);
+                    System.out.println(model.getEquation());
 
                     break;
                 default:
