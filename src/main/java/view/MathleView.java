@@ -96,7 +96,7 @@ public class MathleView extends JFrame {
         this.equation = equation;
     }
     
-    public void addCheckListener(ActionListener listener) {
+    public void addListener(ActionListener listener) {
         checkButton.addActionListener(listener);
     }
     

@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 
 import controller.MathleController;
 import model.MathleModel;
+import view.AfterGameView;
 import view.MathleViewAttempt;
 import view.MathleViewFinalView;
 
@@ -28,7 +29,8 @@ public class MathleDriver {
                     MathleViewAttempt attempt4 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 4);
                     MathleViewAttempt attempt5 = new MathleViewAttempt(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 5);
                     MathleViewFinalView finalView = new MathleViewFinalView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, model.getEquation(), 6);
-                    new MathleController(model, attempt1, attempt2, attempt3, attempt4, attempt5, finalView);
+                    AfterGameView afterGameView = new AfterGameView(TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
+                    new MathleController(model, attempt1, attempt2, attempt3, attempt4, attempt5, finalView, afterGameView);
 
                 }
 
