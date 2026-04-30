@@ -220,4 +220,89 @@ public class MathleView extends JFrame {
 
     }
 
+    enum Views {ATTEMPT_1, ATTEMPT_2, ATTEMPT_3, ATTEMPT_4, ATTEMPT_5, FINAL_VIEW, AFTER_GAME_VIEW}
+
+    public static void updateViews(MathleView attempt1, MathleView attempt2, MathleView attempt3, MathleView attempt4, MathleView attempt5, MathleView finalView, AfterGameView afterGameView, MathleModel model) {
+
+        Views currentAttempt = Views.values()[model.getCurrentAttempt()];
+
+        switch (currentAttempt) {
+                case ATTEMPT_2:
+                    attempt1.findColors(attempt1, model);
+
+                    attempt2.setColors(attempt1);
+
+                    attempt1.setVisible(false);
+                    attempt2.setVisible(true);
+                    
+                    break;
+                case ATTEMPT_3:
+                    attempt2.findColors(attempt2, model);
+
+                    attempt3.setColors(attempt1);
+                    attempt3.setColors(attempt2);
+
+
+                    attempt2.setVisible(false);
+                    attempt3.setVisible(true);
+
+                    break;
+                case ATTEMPT_4:
+                    attempt3.findColors(attempt3, model);
+
+                    attempt4.setColors(attempt1);
+                    attempt4.setColors(attempt2);
+                    attempt4.setColors(attempt3);
+
+                    attempt3.setVisible(false);
+                    attempt4.setVisible(true);
+                    
+                    break;
+                case ATTEMPT_5:
+                    attempt4.findColors(attempt4, model);
+
+                    attempt5.setColors(attempt1);
+                    attempt5.setColors(attempt2);
+                    attempt5.setColors(attempt3);
+                    attempt5.setColors(attempt4);
+
+
+                    attempt4.setVisible(false);
+                    attempt5.setVisible(true);
+
+                    break;
+                case FINAL_VIEW:
+                    attempt5.findColors(attempt5, model);
+
+                    finalView.setColors(attempt1);
+                    finalView.setColors(attempt2);
+                    finalView.setColors(attempt3);
+                    finalView.setColors(attempt4);
+                    finalView.setColors(attempt5);
+
+                    attempt5.setVisible(false);
+                    finalView.setVisible(true);
+                    System.out.println(model.getEquation());
+
+                    break;
+                case AFTER_GAME_VIEW:
+                    finalView.setVisible(false);
+                    afterGameView.setVisible(true);
+
+                    break;
+                default:
+                    attempt1.setVisible(false);
+                    attempt2.setVisible(false);
+                    attempt3.setVisible(false);
+                    attempt4.setVisible(false);
+                    attempt5.setVisible(false);
+                    finalView.setVisible(false);
+                    afterGameView.setVisible(false);
+
+                    break;
+
+            }
+
+    }
+
 }

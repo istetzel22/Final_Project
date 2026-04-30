@@ -36,6 +36,10 @@ public class MathleModel {
         return currentAttempt;
     }
     
+    public void setCurrentAttempt(int currentAttempt) {
+        this.currentAttempt = currentAttempt;
+    }
+
     public void updateCurrentAttempt() {
         currentAttempt++;
     }
